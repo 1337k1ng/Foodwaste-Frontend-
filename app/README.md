@@ -1,4 +1,4 @@
-# foodwaste-frontend-
+# app
 
 ## Project setup
 ```
