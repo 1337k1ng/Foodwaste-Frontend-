@@ -17,6 +17,7 @@
 
 #nav {
   padding: 30px;
+
 }
 
 #nav a {
@@ -26,5 +27,12 @@
 
 #nav a.router-link-exact-active {
   color: #42b983;
+}
+
+body {
+  
+ background: url("~@/assets/StoresBC.png") no-repeat center center
+    fixed;
+
 }
 </style>
