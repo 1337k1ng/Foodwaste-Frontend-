@@ -12,7 +12,7 @@
             <router-link to="/" class="nav-item nav-link">Home</router-link>
             <router-link to="/About" class="nav-item nav-link">About</router-link>
             <router-link to="/Tilbud" class="nav-link">Tilbud</router-link>
-           
+            <router-link to="/Stores" class="nav-link">Stores</router-link>
         </div>
         <form class="d-flex">
             <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
