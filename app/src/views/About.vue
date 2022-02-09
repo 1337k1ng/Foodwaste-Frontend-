@@ -1,6 +1,7 @@
 <script setup> 
 
 import {onMounted} from 'vue'
+import Stores from '../components/Stores.vue'
 
   onMounted(async ()=> {
    fetch("https://localhost:5001/api/stores")
@@ -24,9 +25,12 @@ import {onMounted} from 'vue'
 
 <template>
   <div class="about">
-    <h1>This is an about page</h1>
-
-  
+    <Stores />
 
   </div>
 </template>
+
+
+<style scoped>
+
+</style>
