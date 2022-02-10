@@ -2,29 +2,16 @@
 
 
 <script setup>
-import { onMounted, ref } from "@vue/runtime-core"
+    import {defineEmits} from 'vue'
+  
+    const emits = defineEmits(["setStore"])
 
-const test =  ref("los")
 
-onMounted(()=>{
-test.value = de()
-
-console.log("dad")
-console.log(test)
-
-})
-
-function de(){
-    console.log("LOADEDE")
-return `
-        <div class="storeImages">
-            <img src="../assets/bilka.png"/>
-             <img src="../assets/fotex.png"/>
-              <img src="../assets/netto.png"/>
-        </div>
-        `
-}
-
+  function test(val){
+      console.log("Clikced")
+      emits("setStore",val)
+  }
+  
 </script>
 
 
@@ -32,10 +19,14 @@ return `
     <div class="stores" >
 
    
-        <h1> Stores   </h1>
+        <h1> Stores  </h1>
 
-           {{test}}
-
+            <div class="storeImages">
+                
+           <button id="bilka" v-on:click="test('Bilka')"> <img src="../assets/bilka.png" /> </button>
+            <button v-on:click="test('Foetex')"> <img src="../assets/fotex.png"/></button>
+              <button v-on:click="test('Netto')"><img src="../assets/netto.png"/> </button>
+        </div>
 
     </div>
 
@@ -47,6 +38,7 @@ return `
     margin-top: 20%;
         margin-bottom: 100%;
 }
+
 img {
  
     margin: 10px;
@@ -60,5 +52,11 @@ img:hover{
     width: 22em;
       box-shadow: 2px 2px 8px darkgrey;
 
+}
+
+button {
+    padding: 0px;
+    border: none;
+    background-color: rgba(255, 255, 255, 0);
 }
 </style>

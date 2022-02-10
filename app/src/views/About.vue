@@ -1,36 +1,54 @@
 <script setup> 
 
-import {onMounted} from 'vue'
+import {ref} from 'vue'
 import Stores from '../components/Stores.vue'
+import AllStores from '../components/AllStores.vue'
+import sallingApi from "../api/sallingApi.js"
+const chosenStore = ref("")
 
-  onMounted(async ()=> {
-   fetch("https://localhost:5001/api/stores")
-   .then( async response => {
+const stores  = ref([])
+ 
 
-      const data = await response.json();
 
-      if(!response.ok){
-        const error = data.message
-        return Promise.reject(error)
-      }
+function setStore(val) {
+    
 
-      console.log(data)
-   })
-   .catch(error => {
-     console.error("There was error", error.message)
-   })
 
-      })
+sallingApi.getStores("Bilka").then((res) =>{
+  stores.value = res
+   chosenStore.value = val
+})
+  
+         console.log(val)
+}
+
+
+
+
  </script>
 
 <template>
   <div class="about">
-    <Stores />
+
+
+    <div  v-if="!chosenStore">
+    <Stores  @setStore="setStore" />
+  </div>
+
+  <div  v-else>
+   <img src="../assets/bilka.png" v-if="chosenStore == 'Bilka'">
+<img src="../assets/netto.png" v-else-if="chosenStore == 'Netto'">
+<img src="../assets/fotex.png" v-else-if="chosenStore == 'Foetex'">
+  <AllStores :storelist="stores" />
+  </div>
+
 
   </div>
 </template>
 
 
 <style scoped>
-
+img{
+  width: 250px;
+}
 </style>
