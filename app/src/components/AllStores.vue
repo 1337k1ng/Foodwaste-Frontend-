@@ -2,9 +2,10 @@
 
 
 <script setup>
-import {defineProps} from 'vue'
+import {defineProps, ref} from 'vue'
 import Storecomponent from "../components/Storecomponent.vue"
-
+import sallingApi from '../api/sallingApi'
+import Clearancecomponent from '../components/Clearancecomponent.vue'
 
 const props = defineProps({
   storelist: {
@@ -14,14 +15,30 @@ const props = defineProps({
 })
 
 
+
+const offers = ref([])
+
+function setOffers(id){
+    sallingApi.getOfffersByStore(id).then((data)=>{
+       offers.value = data.clearances
+
+    })
+
+}
+
+
 </script>
 
 
 <template>
-    <div class="storelist" >
+    <div class="storelist" v-if="offers.length === 0">
 
-        <Storecomponent  v-for="store in props.storelist" :store="store" :key="store.id"/>
+        <Storecomponent  @setOffers="setOffers" v-for="store in props.storelist" :store="store" :key="store.id"/>
     </div>
+
+        <div class="offersList" v-else>
+            <Clearancecomponent  v-for="clearance in offers" :clearance="clearance" :key="clearance"/> 
+        </div>
 </template>
 
 <style>
@@ -56,5 +73,13 @@ button{
     height: 100%;
     background-color: white;
     border: none;
+}
+
+
+.offersList{
+  display: flex;
+       flex-wrap: wrap;
+   justify-content: space-between;
+
 }
 </style>

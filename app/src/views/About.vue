@@ -11,15 +11,11 @@ const stores  = ref([])
 
 
 function setStore(val) {
-    
 
-
-sallingApi.getStores("Bilka").then((res) =>{
-  stores.value = res
-   chosenStore.value = val
-})
-  
-         console.log(val)
+  sallingApi.getStores(val).then((res) =>{
+      stores.value = res
+      chosenStore.value = val
+    })
 }
 
 
@@ -36,9 +32,9 @@ sallingApi.getStores("Bilka").then((res) =>{
   </div>
 
   <div  v-else>
-   <img src="../assets/bilka.png" v-if="chosenStore == 'Bilka'">
-<img src="../assets/netto.png" v-else-if="chosenStore == 'Netto'">
-<img src="../assets/fotex.png" v-else-if="chosenStore == 'Foetex'">
+    <img src="../assets/bilka.png" v-if="chosenStore == 'Bilka'">
+    <img src="../assets/netto.png" v-else-if="chosenStore == 'Netto'">
+    <img src="../assets/fotex.png" v-else-if="chosenStore == 'Foetex'">
   <AllStores :storelist="stores" />
   </div>
 

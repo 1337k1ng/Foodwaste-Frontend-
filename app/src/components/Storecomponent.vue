@@ -1,22 +1,31 @@
 
 
 <script setup>
-import {defineProps, onMounted} from 'vue'
+import {defineProps} from 'vue'
+
 
 const props = defineProps({
     store: Object
-})
-onMounted(()=> {
-    console.log(props.store)
-})
+    })
+
+  import {defineEmits} from 'vue'
+  
+    const emits = defineEmits(["setOffers"])
+
+
+  function setOffers(val){
+      emits("setOffers",val)
+  }
+  
+
 
 </script>
-<template>
+<template >
     
   <div class="Storecomponent" >
 
-      <div class="store"> 
-          <button>{{props.store.name}}</button>
+      <div class="store" > 
+          <button  @click.prevent="setOffers(props.store.id)" >  {{props.store.name}}</button>
       </div>
 
     </div>
