@@ -52,9 +52,10 @@
 
 body {
   
- background: url("~@/assets/StoresBC.png") no-repeat center center
-    fixed;
-
+background: url("~@/assets/StoresBC.png") no-repeat;
+background-size: 100%;
+background-clip: border-box;
+background-position: fixed;
 }
 
 
