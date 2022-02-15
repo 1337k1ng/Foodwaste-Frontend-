@@ -4,8 +4,9 @@ import {ref} from 'vue'
 import Stores from '../components/Stores.vue'
 import AllStores from '../components/AllStores.vue'
 import sallingApi from "../api/sallingApi.js"
-const chosenStore = ref("")
 
+
+const chosenStore = ref("")
 const stores  = ref([])
  
 

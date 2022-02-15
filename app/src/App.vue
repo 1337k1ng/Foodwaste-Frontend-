@@ -59,6 +59,9 @@ body {
 
 
 #nav {
+  position: sticky;
+        position: -webkit-sticky;
+        top: 0px;
   padding: 30px;
   text-align: center;
 }

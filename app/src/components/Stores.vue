@@ -36,8 +36,11 @@
 <style scoped>
 .storeImages{
     margin-top: 20%;
-        margin-bottom: 100%;
+  display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
 }
+
 
 img {
  
@@ -55,6 +58,7 @@ img:hover{
 }
 
 button {
+    flex: 0 0 212px;
     padding: 0px;
     border: none;
     background-color: rgba(255, 255, 255, 0);

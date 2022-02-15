@@ -13,8 +13,8 @@ const props = defineProps({
     const emits = defineEmits(["setOffers"])
 
 
-  function setOffers(val){
-      emits("setOffers",val)
+  function setOffers(id, name){
+      emits("setOffers",id, name)
   }
   
 
@@ -25,7 +25,7 @@ const props = defineProps({
   <div class="Storecomponent" >
 
       <div class="store" > 
-          <button  @click.prevent="setOffers(props.store.id)" >  {{props.store.name}}</button>
+          <button  @click.prevent="setOffers(props.store.id, props.store.name)" >  {{props.store.name}}</button>
       </div>
 
     </div>

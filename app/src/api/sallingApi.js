@@ -3,7 +3,7 @@ var sallingApi = {
 
  getStores(brand){
 
-    return fetch("https://localhost:5001/api/stores/" + brand)
+    return fetch("https://foodwasteapi.azurewebsites.net/api/stores/" + brand)
     .then( async response => {
  
        const data = await response.json();
@@ -23,7 +23,7 @@ var sallingApi = {
 
  getOfffersByStore(storeId){
 
-    return fetch("https://localhost:5001/api/offers/" + storeId)
+    return fetch("https://foodwasteapi.azurewebsites.net/api/offers/" + storeId)
     .then( async response => {
  
        const data = await response.json();

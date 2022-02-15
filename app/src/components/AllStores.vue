@@ -11,22 +11,25 @@ const props = defineProps({
   storelist: {
     type: Array,
     required: true
-  }
-})
+  }})
 
 
 
 const offers = ref([])
+const storeName = ref("")
 
-function setOffers(id){
+
+function setOffers(id, name){
+    storeName.value = name
     sallingApi.getOfffersByStore(id).then((data)=>{
        offers.value = data.clearances
+
 
     })
 
 }
 
-
+console.log(storeName)
 </script>
 
 
@@ -37,7 +40,12 @@ function setOffers(id){
     </div>
 
         <div class="offersList" v-else>
+            <div class="offersheader"> 
+                <h2> {{storeName}}</h2>
+            </div>
+            <div class="offersitems">
             <Clearancecomponent  v-for="clearance in offers" :clearance="clearance" :key="clearance"/> 
+             </div>
         </div>
 </template>
 
@@ -75,11 +83,30 @@ button{
     border: none;
 }
 
-
-.offersList{
-  display: flex;
-       flex-wrap: wrap;
-   justify-content: space-between;
+.offersheader{
+    background-color: rgb(210, 225, 230);
+    text-align: left;
+    margin-left: 40px;
+    margin-right: 40px;
+    
 
 }
+
+
+
+.offersitems{
+   padding: 20px;
+    display: flex;
+    flex-wrap: wrap;
+    background-color: rgb(210, 225, 230);
+    margin-left: 40px;
+    margin-right: 40px;
+    justify-content: center;
+}
+
+h2{
+    padding: 10px;
+    font-weight: bold;
+}
+
 </style>
