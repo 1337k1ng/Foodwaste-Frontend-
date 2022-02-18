@@ -2,10 +2,10 @@
 
 
 <script setup>
-import {defineProps, ref} from 'vue'
+import {defineProps} from 'vue'
 import Storecomponent from "../components/Storecomponent.vue"
-import sallingApi from '../api/sallingApi'
-import Clearancecomponent from '../components/Clearancecomponent.vue'
+//import sallingApi from '../api/sallingApi'
+//import router from "../router/index.js"
 
 const props = defineProps({
   storelist: {
@@ -15,48 +15,30 @@ const props = defineProps({
 
 
 
-const offers = ref([])
-const storeName = ref("")
 
-
-function setOffers(id, name){
-    storeName.value = name
-    sallingApi.getOfffersByStore(id).then((data)=>{
-       offers.value = data.clearances
-
-
-    })
-
-}
-
-console.log(storeName)
 </script>
 
 
 <template>
-    <div class="storelist" v-if="offers.length === 0">
+    <div class="storelist" >
 
-        <Storecomponent  @setOffers="setOffers" v-for="store in props.storelist" :store="store" :key="store.id"/>
+        <Storecomponent  v-for="store in props.storelist" :store="store" :key="store.id"/>
     </div>
 
-        <div class="offersList" v-else>
-            <div class="offersheader"> 
-                <h2> {{storeName}}</h2>
-            </div>
-            <div class="offersitems">
-            <Clearancecomponent  v-for="clearance in offers" :clearance="clearance" :key="clearance"/> 
-             </div>
-        </div>
+     
 </template>
 
 <style>
 
+
 .storelist{
-      display: flex;
-       flex-wrap: wrap;
-   justify-content: space-between;
-   justify-items: center;
-   padding: 50px;
+    
+    width: 90%;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin-left: auto;
+    margin-right: auto;
 
 }
 .singlestore{

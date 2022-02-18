@@ -9,15 +9,19 @@ const props = defineProps({
     clearance: Object
 })
 
+
+
 function getPriceString(){
 return props.clearance.offer.newPrice.toString().length < 5 ? props.clearance.offer.newPrice + ".-" : props.clearance.offer.newPrice
 }
 
 const TimeToEnd = computed(() => {
+
+    var startDate = new Date(props.clearance.offer.startTime)
+    console.log("StartDate: ",startDate)
     var endDate = new Date(props.clearance.offer.endTime)
     var today = new Date()
 
-     console.log("TODY", endDate)
 var difference_In_Time = endDate.getTime() - today.getTime();
 var difference_In_Days = difference_In_Time / (1000 * 3600 * 24);
 return Math.ceil(difference_In_Days)
@@ -62,7 +66,7 @@ return Math.ceil(difference_In_Days)
  flex: 0 0 265px;
 background-color: white;
 height: 400px;
-width: 200px;
+width: 20%;
 margin: 10px;
 }
 

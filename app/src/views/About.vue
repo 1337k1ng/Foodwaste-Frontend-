@@ -1,23 +1,8 @@
 <script setup> 
 
-import {ref} from 'vue'
-import Stores from '../components/Stores.vue'
-import AllStores from '../components/AllStores.vue'
-import sallingApi from "../api/sallingApi.js"
 
+import Navbar from "../components/Navbar.vue"
 
-const chosenStore = ref("")
-const stores  = ref([])
- 
-
-
-function setStore(val) {
-
-  sallingApi.getStores(val).then((res) =>{
-      stores.value = res
-      chosenStore.value = val
-    })
-}
 
 
 
@@ -26,25 +11,17 @@ function setStore(val) {
 
 <template>
   <div class="about">
-
-
-    <div  v-if="!chosenStore">
-    <Stores  @setStore="setStore" />
-  </div>
-
-  <div  v-else>
-    <img src="../assets/bilka.png" v-if="chosenStore == 'Bilka'">
-    <img src="../assets/netto.png" v-else-if="chosenStore == 'Netto'">
-    <img src="../assets/fotex.png" v-else-if="chosenStore == 'Foetex'">
-  <AllStores :storelist="stores" />
-  </div>
-
+<Navbar />
+<h1> About page </h1>
 
   </div>
 </template>
 
 
 <style scoped>
+.about{
+  height: 100%;
+}
 img{
   width: 250px;
 }

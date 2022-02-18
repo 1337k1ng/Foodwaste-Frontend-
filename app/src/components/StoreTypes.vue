@@ -7,11 +7,12 @@
     const emits = defineEmits(["setStore"])
 
 
-  function test(val){
-      console.log("Clikced")
+  function setStoreVal(val){
       emits("setStore",val)
   }
-  
+
+
+
 </script>
 
 
@@ -19,14 +20,14 @@
     <div class="stores" >
 
    
-        <h1> Stores  </h1>
 
             <div class="storeImages">
-                
-           <button id="bilka" v-on:click="test('Bilka')"> <img src="../assets/bilka.png" /> </button>
-            <button v-on:click="test('Foetex')"> <img src="../assets/fotex.png"/></button>
-              <button v-on:click="test('Netto')"><img src="../assets/netto.png"/> </button>
-        </div>
+        
+                <button v-on:click="setStoreVal('Bilka')"> <img src="../assets/bilka.png" /> </button>
+                <button v-on:click="setStoreVal('Foetex')"> <img src="../assets/fotex.png"/></button>
+                <button v-on:click="setStoreVal('Netto')"><img src="../assets/netto.png"/> </button>
+
+           </div>
 
     </div>
 
@@ -34,25 +35,31 @@
 
 
 <style scoped>
+
+
+
 .storeImages{
-    margin-top: 20%;
+    margin-top: 8%;
   display: flex;
     flex-wrap: wrap;
-    justify-content: center;
+    justify-content: space-evenly;
+    width: 72%;
+    margin-left: auto;
+    margin-right: auto;
 }
 
 
 img {
- 
+    
     margin: 10px;
-    width: 20em;
+    width: 26em;
     box-shadow: 2px 2px 5px darkgrey;
      transition: width 0.3s, box-shadow 0.3s;
     cursor: pointer;
 }
 
 img:hover{
-    width: 22em;
+    width: 32em;
       box-shadow: 2px 2px 8px darkgrey;
 
 }

@@ -1,81 +1,31 @@
-<template>
-  <div id="nav">
-  <nav class="container navbar navbar-expand-lg navbar-light bg-light">
-    <a class="navbar-brand" href="#">Logo Here</a>
-    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
-        aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-    </button>
 
-    <div class="collapse navbar-collapse" id="navbarSupportedContent">
-        <div class="navbar-nav mr-auto">
-            <router-link to="/" class="nav-item nav-link">Home</router-link>
-            <router-link to="/About" class="nav-item nav-link">About</router-link>
-            <router-link to="/Tilbud" class="nav-link">Tilbud</router-link>
-            <router-link to="/Stores" class="nav-link">Stores</router-link>
-        </div>
-        <form class="d-flex">
-            <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
-            <button class="btn btn-outline-success" type="submit">Search</button>
-        </form>
-    </div>
-</nav>
- </div>
-  <router-view/>
+
+
+<script setup>
+</script>
+
+<template>
+  <router-view class="rout"/>
 </template>
 
 
-
-
 <style>
+
+
 #app {
   font-family: Avenir, Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
   color: #2c3e50;
+  height: 100vh;
+   
+
+
 }
 
-#nav {
-  padding: 30px;
-
+.rout{
+     background: radial-gradient(lightblue, white) repeat;
+ background-size: 100vh;
 }
-
-#nav a {
-  font-weight: bold;
-  color: #2c3e50;
-}
-
-#nav a.router-link-exact-active {
-  color: #42b983;
-}
-
-body {
-  
-background: url("~@/assets/StoresBC.png") no-repeat;
-background-size: 100%;
-background-clip: border-box;
-background-position: fixed;
-}
-
-
-#nav {
-  position: sticky;
-        position: -webkit-sticky;
-        top: 0px;
-  padding: 30px;
-  text-align: center;
-}
-
-#nav a {
-  font-weight: bold;
-  color: #2c3e50;
-}
-
-#nav a.router-link-exact-active {
-  color: whitesmoke;
-  background: rgb(4, 126, 24);
-  border-radius: .5rem;
-}
-
 </style>
